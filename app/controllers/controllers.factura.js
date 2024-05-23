@@ -1,56 +1,45 @@
-import pool from "../config/db.mysql.js"
+import { pool } from "../config/db.mysql.js"
 
-export const  listarFactura = async(req, res) =>{
-    const id =req.params["id"]
+export const listarFactura = async (req, res) => {
+    const id = req.params["id"]
     try {
-        const [respuesta] = await pool.query(`CALL SP_LISTAR_FACTURA('${id}')`);
-        res.json({"respuesta": respuesta})
+        const [respuesta] = await pool.query(` CALL SP_LISTAR_FACTURA(${id});`);
+        res.json({"respuesta": respuesta[0][0]})
+        
     } catch (error) {
-        res.json({"error": error});
+        res.json({"error": error})
     }
-    
-};
+}
 
-
-export const  mostrarFactura = async(req, res) =>{
+export const mostrarFactura = async (req, res) => {
     try {
-        const [respuesta] = await pool.query(`CALL`);
-        req.json({"respuesta": respuesta})
+        const [respuesta] = await pool.query(`CALL SP_MOSTRAR_FACTURA();`);
+        req.json({"Respuesta": respuesta[0][0]})
     } catch (error) {
-        res.json({"error": error});
-    }
-    
-};
+        res.json({"error": error})
+    }    
+}
 
-
-export const  crearFactura = async(req, res) =>{
+export const crearFactura = (req, res) => {
     try {
-        const [respuesta] = await pool.query(`CALL`);
-        req.json({"respuesta": respuesta})
+        
     } catch (error) {
-        res.json({"error": error});
-    }
-    
-};
+        res.json({"error": error})
+    }    
+}
 
-
-export const  modificarFactura = async(req, res) =>{
+export const modificarFactura = (req, res) => {
     try {
-        const [respuesta] = await pool.query(`CALL`);
-        req.json({"respuesta": respuesta})
+        
     } catch (error) {
-        res.json({"error": error});
-    }
-    
-};
+        res.json({"error": error})
+    }    
+}
 
-
-export const  eliminaFactura = async(req, res) =>{
+export const eliminaFactura = (req, res) => {
     try {
-        const [respuesta] = await pool.query(`CALL`);
-        req.json({"respuesta": respuesta})
+        
     } catch (error) {
-        res.json({"error": error});
-    }
-    
-};
+        res.json({"error": error})
+    }    
+}

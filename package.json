@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon ./app/index.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/EXAMEN-NODE-JS/EXAMEN/issues"
   },
-  "homepage": "https://github.com/EXAMEN-NODE-JS/EXAMEN#readme"
+  "homepage": "https://github.com/EXAMEN-NODE-JS/EXAMEN#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.5",
+    "@babel/core": "^7.24.5",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.5",
+    "nodemon": "^3.1.0"
+  }
 }
